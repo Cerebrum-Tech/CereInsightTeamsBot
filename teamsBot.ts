@@ -1,20 +1,9 @@
-import {
-  TeamsActivityHandler,
-  CardFactory,
-  TurnContext,
-  AdaptiveCardInvokeValue,
-  AdaptiveCardInvokeResponse,
-  MessageFactory,
-} from "botbuilder";
-import rawWelcomeCard from "./adaptiveCards/welcome.json";
-import rawLearnCard from "./adaptiveCards/learn.json";
-import { AdaptiveCards } from "@microsoft/adaptivecards-tools";
-
+import { TeamsActivityHandler, TurnContext, MessageFactory } from "botbuilder";
 export interface DataInterface {
   likeCount: number;
 }
 
-const cereInstanceURL = "http://127.0.0.1:3000";
+const cereInstanceURL = "https://premier.cereinsight.com";
 
 export class TeamsBot extends TeamsActivityHandler {
   // record the likeCount
@@ -92,22 +81,4 @@ export class TeamsBot extends TeamsActivityHandler {
 
   // Invoked when an action is taken on an Adaptive Card. The Adaptive Card sends an event to the Bot and this
   // method handles that event.
-  async onAdaptiveCardInvoke(
-    context: TurnContext,
-    invokeValue: AdaptiveCardInvokeValue
-  ): Promise<AdaptiveCardInvokeResponse> {
-    // The verb "userlike" is sent from the Adaptive Card defined in adaptiveCards/learn.json
-    if (invokeValue.action.verb === "userlike") {
-      this.likeCountObj.likeCount++;
-      const card = AdaptiveCards.declare<DataInterface>(rawLearnCard).render(
-        this.likeCountObj
-      );
-      await context.updateActivity({
-        type: "message",
-        id: context.activity.replyToId,
-        attachments: [CardFactory.adaptiveCard(card)],
-      });
-      return { statusCode: 200, type: undefined, value: undefined };
-    }
-  }
 }

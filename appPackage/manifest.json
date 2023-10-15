@@ -1,26 +1,26 @@
 {
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
     "manifestVersion": "1.16",
-    "version": "1.0.0",
+    "version": "1.2.4",
     "id": "${{TEAMS_APP_ID}}",
     "packageName": "com.microsoft.teams.extension",
     "developer": {
-        "name": "Teams App, Inc.",
-        "websiteUrl": "https://www.example.com",
-        "privacyUrl": "https://www.example.com/termofuse",
-        "termsOfUseUrl": "https://www.example.com/privacy"
+        "name": "Cerebrum Tech",
+        "websiteUrl": "https://cerebrumtechnologies.com",
+        "privacyUrl": "https://cerebrumtechnologies.com/termofuse",
+        "termsOfUseUrl": "https://cerebrumtechnologies.com/privacy"
     },
     "icons": {
         "color": "color.png",
         "outline": "outline.png"
     },
     "name": {
-        "short": "CereInsightTeamsBot-${{TEAMSFX_ENV}}",
-        "full": "full name for CereInsightTeamsBot"
+        "short": "Cere Bot",
+        "full": "Cere Insight Teams Bot"
     },
     "description": {
-        "short": "short description for CereInsightTeamsBot",
-        "full": "full description for CereInsightTeamsBot"
+        "short": "This bot is a Cere Insight Teams Bot",
+        "full": "This bot dirrectly connectet to an Cere Insight Bot Instance"
     },
     "accentColor": "#FFFFFF",
     "bots": [
@@ -34,23 +34,6 @@
             "supportsFiles": false,
             "isNotificationOnly": false,
             "commandLists": [
-                {
-                    "scopes": [
-                        "personal",
-                        "team",
-                        "groupchat"
-                    ],
-                    "commands": [
-                        {
-                            "title": "welcome",
-                            "description": "Resend welcome card of this Bot"
-                        },
-                        {
-                            "title": "learn",
-                            "description": "Learn about Adaptive Card and Bot Command"
-                        }
-                    ]
-                }
             ]
         }
     ],
