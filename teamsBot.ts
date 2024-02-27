@@ -37,6 +37,7 @@ export class TeamsBot extends TeamsActivityHandler {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "x-api-key": "sk-f7xmx44b47su7c97465l6c2dex6j99x265fqtwavpmi",
           },
           body: raw,
         });
